@@ -24,7 +24,7 @@ class MY_Model extends CI_Model
      */
     public $_database;
     
-    protected $_entity_name = 'My_entity';
+    protected $_entity_name = 'my_entity';
     /**
      * This model's default primary key or unique identifier.
      * Used by the get(), update() and delete() functions.

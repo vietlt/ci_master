@@ -79,6 +79,7 @@
 div.error {
 	color: #740000;
 	font-weight: 700;
+  margin-top:10px;
 }
 
 div.jGrowl div.error {

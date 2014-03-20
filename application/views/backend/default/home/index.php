@@ -1,13 +1,13 @@
 <div class="container_12">
 
 	<div class="grid_12">
-		<div class="alert info"><span class="hide">x</span><strong>Information</strong> Welcome , <b>CI-Master</b> admin panel !!!</div>
+		<div class="alert info"><span class="hide">x</span><strong>Welcome</strong>  , <b>CI-Master</b> admin panel !!!</div>
 	</div>
 	
 	<div class="grid_6">
 		<div class="block-border">
 			<div class="block-header">
-				<h1>Block List without Icon</h1><span></span>
+				<h1>Block List without Icon </h1><span></span>
 			</div>
 			<div class="block-content">
 				<ul class="block-list">

@@ -1,5 +1,9 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
+function __autoload($class) {
+    if (file_exists(APPPATH."models/entity/".strtolower($class).EXT)) {
+        include_once(APPPATH."models/entity/".strtolower($class).EXT);
+    }
+}
 /*
 |--------------------------------------------------------------------------
 | Base Site URL

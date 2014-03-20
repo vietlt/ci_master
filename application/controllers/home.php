@@ -11,7 +11,6 @@ class home extends MY_Controller {
 	{
 		$this->load->view('home/index');
 	}
-
 }
 
 /* End of file home.php */
