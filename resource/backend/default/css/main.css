@@ -420,7 +420,7 @@ body.special-page {
 }
 
 .block-border .block-content + .block-content {
-	margin-top: 10px;
+	/*margin-top: 10px;*/
 }
 
 .block-border .block-content {
@@ -564,6 +564,7 @@ body.special-page {
 .alert.no-margin.top {
 	border-width: 0 0 1px 0;
 	margin-top: 0;
+    line-height: 16px;
 }
 
 .alert.no-margin.bottom {
@@ -580,7 +581,7 @@ body.special-page {
 }
 
 .alert.success { background-image: url("../img/icons/packs/fugue/16x16/tick-circle.png"); background-color: #d1e8d2; border-color: #339933; color: #00632E; }
-.alert.error { background-image: url("../img/icons/packs/fugue/16x16/cross-circle.png"); background-color: #facfcf; border-color: #dc1c1c; color: #820101; }
+.alert.error { background: url("../img/icons/packs/fugue/16x16/cross-circle.png") no-repeat top 9px left 11px; background-color: #facfcf; border-color: #dc1c1c; color: #820101; }
 .alert.warning { background-image: url("../img/icons/packs/fugue/16x16/exclamation.png"); background-color: #fdefbd; border-color: #d4b64b; color: #675100; }
 .alert.info { background-image: url("../img/icons/packs/fugue/16x16/information.png"); background-color: #d8e7fa; border-color: #9DBFEA; color: #00357B; }
 .alert.note { background-image: url("../img/icons/packs/fugue/16x16/notebook.png"); background-color: #f4f4f4; border-color: #bdbdbd; color: #4d4d4d; }

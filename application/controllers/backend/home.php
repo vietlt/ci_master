@@ -9,7 +9,8 @@ class home extends MY_Controller {
 
 	public function index()
 	{
-		$this->load->view('home/index');
+        $data['title'] = 'CI-Master :: Bảng điều khiển';
+		$this->load->view('home/index',$data);
 	}
 
 }

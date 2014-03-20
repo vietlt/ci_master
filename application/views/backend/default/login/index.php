@@ -41,38 +41,55 @@
   	<!-- Begin of LoginBox-section -->
     <section id="login-box">
     	
-    	<div class="block-border">
-    		<div class="block-header">
+    	<div class="block-border" style="position: relative">
+    		<div class="block-header" style="position: relative">
     			<h1>Đăng nhập hệ thống</h1>
     		</div>
-    		<form id="login-form" class="block-content form" method="post">
-    			<p class="inline-small-label">
-					<label for="username">Tài khoản</label>
-					<input type="text" id="username" name="username" value="" class="required">
-				</p>
-				<p class="inline-small-label">
-					<label for="password">Mật khẩu</label>
-					<input type="password" id="password" name="password" value="" class="required">
-				</p>
-    			<p>
-					<label><input type="checkbox" name="keep_logged" /> Nhớ mật khẩu.</label>
-				</p>
-				
-				<div class="clear"></div>
-				
-				<!-- Begin of #block-actions -->
-    			<div class="block-actions">
-					<ul class="actions-left">
-						<li><a class="button" name="recover_password" href="javascript:void(0);">Khôi phục mật khẩu</a></li>
-						<li class="divider-vertical"></li>
-						<li><a class="button red" id="reset-login" href="javascript:void(0);">Bỏ qua</a></li>
-					</ul>
-					<ul class="actions-right">
-						<li><input type="button" class="button" onclick="CheckLogin()" value="Đăng nhập"></li>
-					</ul>
-				</div> <!--! end of #block-actions -->
-    		</form>
-    		
+            <form id="login-form" class="block-content form" method="post" style="position: relative">
+                <p class="inline-small-label">
+                    <label for="username">Tài khoản</label>
+                    <input type="text" id="username" name="username" value="" class="required">
+                </p>
+                <p class="inline-small-label">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" name="password" value="" class="required">
+                </p>
+                <p>
+                    <label><input type="checkbox" name="keep_logged" /> Nhớ mật khẩu.</label>
+                </p>
+
+                <div class="clear"></div>
+
+                <!-- Begin of #block-actions -->
+                <div class="block-actions">
+                    <ul class="actions-left">
+                        <li><a class="button" name="recover_password" onclick="GotoFormRecover()" href="javascript:void(0);">Khôi phục mật khẩu</a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a class="button red" id="reset-login" href="javascript:void(0);">Bỏ qua</a></li>
+                    </ul>
+                    <ul class="actions-right">
+                        <li><a class="button" onclick="CheckLogin()">Đăng nhập</a></li>
+                    </ul>
+                </div> <!--! end of #block-actions -->
+            </form>
+            <form id="recover-form" class="block-content form" method="post" style="display: none;position: relative">
+                <p class="inline-small-label">
+                    <label for="username">Email đăng ký</label>
+                    <input type="text" id="email" name="email" value="" class="required">
+                </p>
+                <div class="clear"></div>
+                <!-- Begin of #block-actions -->
+                <div class="block-actions">
+                    <ul class="actions-left">
+                        <li><a class="button" onclick="ComeBack()">&laquo; Quay lại</a></li>
+                        <li class="divider-vertical"></li>
+                    </ul>
+                    <ul class="actions-right">
+                        <li><a class="button" name="recover_password" onclick="RecoverPassword()" href="javascript:void(0);">Thực hiện</a></li>
+                    </ul>
+                </div> <!--! end of #block-actions -->
+            </form>
+
     		
     	</div>
     </section> <!--! end of #login-box -->
@@ -97,23 +114,67 @@
   
  <script type="text/javascript">
     function CheckLogin() {
-      $.ajax({
-          url: 'login/check_login',
-          type: 'post',
-          data: {
-            username : $('#username').val(),
-            password : $('#password').val(),
-          },
-          dataType: 'json',
-          success: function (data) {
-            // if(data.status)
-            // {
-              console.log(data.data);
-            // }
-            // else
-            //   console.log(data.msg);
-          }
-        });
+        var username = $('#username').val();
+        var password = $('#password').val();
+        var loginform = $('#login-form');
+        var status = true;
+
+        if(username.length == 0)
+        {
+            $('#username').addClass('error');
+            var status = false;
+        }
+        if(password.length == 0)
+        {
+            $('#password').addClass('error');
+            var status = false;
+        }
+        if(!status)
+        {
+            loginform.removeAlertBoxes();
+            loginform.alertBox('Tài khoản hoặc mật khẩu không được để trống !',{type:'error'});
+        }
+        else
+        {
+            $.ajax({
+                url: 'login/check_login',
+                type: 'post',
+                data: {
+                    username : username,
+                    password : password
+                },
+                dataType: 'json',
+                success: function (data) {
+                    if(data.status)
+                    {
+                        window.location.href = 'home/index';
+                    }
+                    else
+                    {
+                        loginform.removeAlertBoxes();
+                        loginform.alertBox(data.result, {type: 'error'});
+                    }
+                }
+            });
+        }
+    }
+    function GotoFormRecover()
+    {
+        var loginform = $('#login-form');
+        var recoverform = $('#recover-form');
+        $('.block-header h1').text('Khôi phục mật khẩu');
+        loginform.fadeOut();
+        $('.block-content').addClass('margin','0');
+        recoverform.fadeIn();
+    }
+    function ComeBack()
+    {
+        var loginform = $('#login-form');
+        var recoverform = $('#recover-form');
+        $('.block-header h1').text('Thông tin đăng nhập');
+        loginform.fadeIn();
+        $('.block-content').addClass('margin','0');
+        recoverform.fadeOut();
     }
 	// $().ready(function() {
 		

@@ -25,7 +25,10 @@ class MY_Controller extends CI_Controller
         // Call the Model constructor
         parent::__construct();
         $this->config->set_item('current_area','frontend');
-        if($this->uri->segment(1) == "backend") $this->config->set_item('current_area','backend');
+        if($this->uri->segment(1) == "backend")
+        {
+            $this->config->set_item('current_area','backend');
+        }
         // die($this->config->item('current_area'));
     }
 

@@ -1,3 +1,4 @@
+<?if(!$this->session->userdata('account_info')) redirect('backend/login','location')?>
 <!DOCTYPE html>
 <html lang="">
     <head>

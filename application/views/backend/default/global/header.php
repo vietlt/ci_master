@@ -1,5 +1,4 @@
-    <div id="header-surround"><header id="header">
-    	
+<div id="header-surround"><header id="header">
     	<!-- Place your logo here -->
 		<img src="<?=backend_img_url()?>/logo.png" alt="Grape" class="logo">
 		
@@ -129,8 +128,8 @@
 		<!-- Begin of #user-info -->
 		<div id="user-info">
 			<p>
-				<span class="messages">Hello <a href="javascript:void(0);">Administrator</a> ( <a href="javascript:void(0);"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/mail.png" alt="Messages"> 3 new messages</a> )</span>
-				<a href="javascript:void(0)" class="toolbox-action button">Settings</a> <a href="javascript:void(0);" class="button red">Logout</a>
+				<span class="messages">Xin chào, <a href="javascript:void(0);"><?=$this->session->userdata('account_info')['full_name']?></a> ( <a href="javascript:void(0);"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/mail.png" alt="Messages"> 1 tin mới</a> )</span>
+				<a href="javascript:void(0)" class="toolbox-action button">Cài đặt</a> <a href="<?=base_url()?>backend/login/logout" class="button red">Thoát</a>
 			</p>
 		</div> <!--! end of #user-info -->
 		
@@ -151,13 +150,13 @@
 		<!-- Begin of #login-details -->
 		<section id="login-details">
     		<img class="img-left framed" src="<?=backend_img_url()?>/misc/avatar_small.png" alt="Hello Admin">
-    		<h3>Logged in as</h3>
-    		<h2><a class="user-button" href="javascript:void(0);">Administrator&nbsp;<span class="arrow-link-down"></span></a></h2>
+    		<h3>Đăng nhập bởi :</h3>
+    		<h2><a class="user-button" href="javascript:void(0);"><?=$this->session->userdata('account_info')['full_name']?>&nbsp;<span class="arrow-link-down"></span></a></h2>
     		<ul class="dropdown-username-menu">
     			<li><a href="#">Profile</a></li>
     			<li><a href="#">Settings</a></li>
     			<li><a href="#">Messages</a></li>
-    			<li><a href="#">Logout</a></li>
+    			<li><a href="<?=base_url()?>backend/login/logout">Thoát</a></li>
     		</ul>
     		
     		<div class="clearfix"></div>
