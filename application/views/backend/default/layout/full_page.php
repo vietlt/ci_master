@@ -11,8 +11,8 @@
 	        		<div id="title-bar">
 	        			<ul id="breadcrumbs">
 	        				<li><a href="dashboard.html" title="Home"><span id="bc-home"></span></a></li>
-	        				<li><a href="list_block.html" title="Lists">Lists</a></li>
-	        				<li class="no-hover">Block Lists</li>
+	        				<li><a href="list_block.html" title="Lists"><b>Trang chủ</b></a></li>
+	        				<!-- <li class="no-hover">Block Lists</li> -->
 	        			</ul>
 	        		</div> <!--! end of #title-bar -->
 	        		<div class="shadow-bottom shadow-titlebar"></div>
