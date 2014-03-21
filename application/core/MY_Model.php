@@ -24,7 +24,7 @@ class MY_Model extends CI_Model
      */
     public $_database;
     
-    protected $_entity_name = 'my_entity';
+    protected $_entity_name = 'entity';
     /**
      * This model's default primary key or unique identifier.
      * Used by the get(), update() and delete() functions.
@@ -103,7 +103,6 @@ class MY_Model extends CI_Model
      */
     public function get($primary_value)
     {
-        
         return $this->get_by($this->primary_key, $primary_value);
     }
     /**

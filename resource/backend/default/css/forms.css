@@ -111,6 +111,14 @@ p.inline-small-label label.error {
     margin-left: 2%;
     margin-right: 2%;
 }
+._45 {
+    width: 44.5%;
+    display: inline;
+    float: left;
+    margin-left: 2%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+}
 ._50 {
     width: 46%;
     display: inline;

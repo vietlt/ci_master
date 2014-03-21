@@ -11,6 +11,10 @@ class login extends MY_Controller
 
     public function index()
     {
+        if($this->session->userdata('account_info'))
+        {
+            redirect('backend/home','location');die();
+        }
         $dir = $this->config->item('backend_template_dir');
         $this->load->default_view('backend/' . $dir . '/login/index');
     }
@@ -39,6 +43,7 @@ class login extends MY_Controller
     public function logout()
     {
         $this->session->unset_userdata('account_info');
+        redirect('backend/login','location');
     }
 }
 /* End of file login.php */

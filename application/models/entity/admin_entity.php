@@ -1,6 +1,7 @@
 <?php
-
-class author_entity extends my_entity
+class admin_entity extends entity
 {
-
+    public function getAccount() {
+        return '<b>[CI-Master]</b> '.$this->getData('account');
+    }
 }

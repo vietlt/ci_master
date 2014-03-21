@@ -20,7 +20,7 @@ if ( ! function_exists('js_url'))
 
 if (! function_exists('backend_css_url'))
 {
-	function backend_css_url()
+	function backend_css_url($uri = '')
 	{
 		$CI =& get_instance();
 		return $CI->config->base_url('/resource/backend/'.$CI->config->item('backend_skin_dir').'/css/'.$uri);
@@ -29,7 +29,7 @@ if (! function_exists('backend_css_url'))
 
 if (! function_exists('backend_js_url'))
 {
-	function backend_js_url()
+	function backend_js_url($uri = '')
 	{
 		$CI =& get_instance();
 		return $CI->config->base_url('/resource/backend/'.$CI->config->item('backend_skin_dir').'/js/'.$uri);
@@ -38,7 +38,7 @@ if (! function_exists('backend_js_url'))
 
 if (! function_exists('backend_img_url'))
 {
-	function backend_img_url()
+	function backend_img_url($uri = '')
 	{
 		$CI =& get_instance();
 		return $CI->config->base_url('/resource/backend/'.$CI->config->item('backend_skin_dir').'/img/'.$uri);

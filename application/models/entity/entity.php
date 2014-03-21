@@ -6,7 +6,7 @@
  * Time: 6:07 PM
  */
 
-class my_entity
+class entity
 {
     protected $_data = array();
 

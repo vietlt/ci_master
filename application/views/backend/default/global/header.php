@@ -136,7 +136,6 @@
     </header></div> <!--! end of #header -->
     
     <div class="fix-shadow-bottom-height"></div>
-	
 	<!-- Begin of Sidebar -->
     <aside id="sidebar">
     	
@@ -151,7 +150,8 @@
 		<section id="login-details">
     		<img class="img-left framed" src="<?=backend_img_url()?>/misc/avatar_small.png" alt="Hello Admin">
     		<h3>Đăng nhập bởi :</h3>
-    		<h2><a class="user-button" href="javascript:void(0);"><?=$this->session->userdata('account_info')['full_name']?>&nbsp;<span class="arrow-link-down"></span></a></h2>
+    		<h2><a class="user-button" href="javascript:void(0);">
+                    <?=$this->session->userdata('account_info')['account_name']?>&nbsp;<span class="arrow-link-down"></span></a></h2>
     		<ul class="dropdown-username-menu">
     			<li><a href="#">Profile</a></li>
     			<li><a href="#">Settings</a></li>
@@ -165,42 +165,23 @@
     	<!-- Begin of Navigation -->
     	<nav id="nav">
 	    	<ul class="menu collapsible shadow-bottom">
-	    		<li><a href="dashboard.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/dashboard.png">Dashboard<span class="badge">2</span></a></li>
-	    		<li><a href="forms.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/application-form.png">Forms</a></li>
-	    		<li><a href="table.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/table.png">Table</a></li>
-	    		<li><a href="charts.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/chart.png">Charts</a></li>
+	    		<li><a href="dashboard.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/dashboard.png"><b>Bảng điều khiển</b><span class="badge">2</span></a></li>
+	    		<li><a href="<?=base_url()?>backend/config"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/application-form.png">Cấu hình webiste</a></li>
+	    		<li><a href="<?=base_url()?>backend/admin"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/table.png">Quản trị người dùng</a></li>
+	    		<li><a href="<?=base_url()?>backend/customer"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/chart.png">Quản trị khách hàng</a></li>
 	    		<li class="expand">
-	    			<a href="javascript:void(0);" class="current"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/clipboard-list.png">Lists<span class="badge grey">3</span></a>
+	    			<a href="javascript:void(0);" class="current"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/clipboard-list.png">Quản lý sản phẩm<span class="badge grey">3</span></a>
 	    			<ul class="sub">
 	    				<li><a href="list_block.html" class="current">Block Lists</a></li>
 	    				<li><a href="list_shortcut.html">Shortcut List</a></li>
 	    				<li><a href="list_contact.html">Contact List</a></li>
 	    			</ul>
 	    		</li>
-	    		<li><a href="tabs.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/ui-tab-content.png">Tabs</a></li>
-	    		<li><a href="notifications.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/application--exclamation.png">Notifications</a></li>
-	    		<li><a href="alert_boxes.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/balloons-box.png">Alert Boxes</a></li>
-	    		<li><a href="tooltips.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/ui-tooltip-balloon.png">Tooltips</a></li>
+	    		<li><a href="<?=base_url()?>backend/post"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/ui-tab-content.png">Quản lý bài viết</a></li>
+	    		<li><a href="notifications.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/application--exclamation.png">Quản lý biểu đồ</a></li>
+	    		<li><a href="alert_boxes.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/balloons-box.png">Quản lý danh mục</a></li>
+	    		<li><a href="<?=base_url()?>backend/seo"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/ui-tooltip-balloon.png">Quản trị SEO</a></li>
 	    		<li><a href="404.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/magnifier--exclamation.png">Error-Page (404)</a></li>
-	    		<li><a href="login.html"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/door-open-in.png">Login</a></li>
-	    		<li>
-	    			<a href="javascript:void(0);"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/user-white.png">Example Submenu<span class="badge red">42</span></a>
-	    			<ul class="sub">
-	    				<li><a href="javascript:void(0);">Lorem ipsum #1</a></li>
-	    				<li><a href="javascript:void(0);">Lorem ipsum #2</a></li>
-	    				<li><a href="javascript:void(0);">Lorem ipsum #3</a></li>
-	    			</ul>
-	    		</li>
-	    		<li>
-	    			<a href="javascript:void(0);"><img src="<?=backend_img_url()?>/icons/packs/fugue/16x16/newspaper.png">Another Submenu</a>
-	    			<ul class="sub">
-	    				<li><a href="javascript:void(0);">Lorem ipsum</a></li>
-	    				<li><a href="javascript:void(0);">Lorem ipsum</a></li>
-	    				<li><a href="javascript:void(0);">Lorem ipsum</a></li>
-	    				<li><a href="javascript:void(0);">Lorem ipsum</a></li>
-	    				<li><a href="javascript:void(0);">Lorem ipsum</a></li>
-	    			</ul>
-	    		</li>
 	    	</ul>
     	</nav> <!--! end of #nav -->
     	
