@@ -137,7 +137,7 @@
         else
         {
             $.ajax({
-                url: 'login/check_login',
+                url: 'backend/login/check_login',
                 type: 'post',
                 data: {
                     username : username,
