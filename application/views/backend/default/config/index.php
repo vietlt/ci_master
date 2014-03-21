@@ -1,4 +1,4 @@
-<?if(isset($config)) $option = json_decode($config->row()->option); $plus = 0;?>
+<?if(isset($config)) $option = json_decode($config->getOption()); $key = 0;?>
 <div class="container_12">
     <div class="grid_12">
         <div class="block-border">
@@ -7,12 +7,13 @@
             </div>
             <form id="validate-form" class="block-content form" action="<?=base_url()?>backend/config/save" method="post">
                 <div class="_100">
-                    <p><label for="textfield">Tên website :</label><input id="name" name="txtName" class="required" type="text"/></p>
+                    <p><label for="textfield">Tên website :</label><input id="name" name="txtName" class="required" type="text" value="<?=$config->getName_website()?>"/></p>
                 </div>
 
                 <div class="_100">
                     <p>
-                        <input type="text" id="browseimage" onclick="BrowseServer()" name="txtImgUrl"  data-provide="typeahead" data-items="4" value="<?=$img_url?>"/>
+                        <label for="textfield">Logo :</label>
+                        <input type="text" id="browseimage" onclick="BrowseServer()" name="txtLogo"  data-provide="typeahead" data-items="4" value="<?=$config->getLogo()?>"/>
                         <script type="text/javascript">
                             function BrowseServer()
                             {
@@ -33,7 +34,7 @@
                 <div class="_100">
                     <p><label for="textarea">About :</label></p>
 
-                    <textarea type="text" id="about" data-val-required="" name="txtAbout"></textarea>
+                    <textarea type="text" id="about" data-val-required="" name="txtAbout"><?=$config->getAbout()?></textarea>
                     <script src="<?=base_url()?>resource/ckeditor/ckeditor.js"></script>
                     <script type="text/javascript">
                         CKEDITOR.replace('about');
@@ -41,7 +42,7 @@
                 </div>
 
                 <div class="_100">
-                    <p><label for="textfield">Email quản trị :</label><input id="mail" name="txtMail" class="required" type="text" placeholder="vidu@email.com"/></p>
+                    <p><label for="textfield">Email quản trị :</label><input id="mail" name="txtMail" class="required" value="<?=$config->getEmail_system()?>" type="text" placeholder="vidu@email.com"/></p>
                 </div>
                 <div class="_100">
                     <p><label for="textfield">Mật khẩu email :</label><input id="passmail" name="txtPass" class="required" type="password" placeholder="*********"/></p>
@@ -52,11 +53,8 @@
                 </div>
 
                 <div class="both-option">
-
-                    <?php if(isset($option))
-                    {
-                        foreach ($option as $key => $value) {
-                            ?>
+                    <?if(isset($option)):?>
+                        <?foreach ($option as $key => $value):?>
                             <div id = "option-<?=$key?>">
                                 <div class="_45">
                                     <input id="key" name="txtOption[<?=$key?>][key]" type="text" value="<?= $value->key?>"/>
@@ -69,11 +67,12 @@
                                 <a hreft="#" class="button red" onclick="RemoveOption(<?=$key?>)">Xóa</a>
                                 <div class="clear"></div>
                             </div>
-                        <?php }}?>
+                        <?endforeach;?>
+                     <?endif;?>
                 </div>
                 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
                 <script type="text/javascript">
-                    var plus = 1;
+                    var plus = <?=$key?>;
                     function AddOption()
                     {
                         plus++;
@@ -89,7 +88,6 @@
 
                     function RemoveOption(id)
                     {
-                        console.log(id);
                         $('#option-'+id).remove();
                     }
                 </script>
@@ -97,8 +95,6 @@
                 <div class="_100">
                     <p><label for="textfield">Kết thúc</label></p>
                 </div>
-
-
 
                 <div class="clear"></div>
                 <div class="block-actions">
@@ -112,32 +108,5 @@
             </form>
         </div>
     </div>
-
     <div class="clear height-fix"></div>
-
-    <script type="text/javascript">
-        $().ready(function() {
-
-            /*
-             * Form Validation
-             */
-
-            var v = $("#create-user-form").validate();
-            jQuery("#reset").click(function() { v.resetForm(); $.jGrowl("User was not created!", { theme: 'error' }); });
-
-            var v2 = $("#write-message-form").validate();
-            jQuery("#reset2").click(function() { v2.resetForm(); $.jGrowl("Message was not sent.", { theme: 'error' }); });
-
-            var v3 = $("#create-folder-form").validate();
-            jQuery("#reset3").click(function() { v3.resetForm(); $.jGrowl("Folder was not created!", { theme: 'error' }); });
-
-            var validateform = $("#validate-form").validate();
-            $("#reset-validate-form").click(function() {
-                validateform.resetForm();
-                $.jGrowl("Bạn đã xóa trắng tất cả các field.", { theme: 'error' });
-            });
-        });
-    </script>
-
-
 </div>

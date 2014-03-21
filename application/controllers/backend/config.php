@@ -10,6 +10,7 @@ class config extends MY_Controller
 
     public function index()
     {
+        $data['title'] = 'Cấu hình webiste';
         $data['config'] = $this->config_model->get(1);
         $this->load->view('config/index',$data);
     }
@@ -22,6 +23,7 @@ class config extends MY_Controller
         $about = $this->input->post('txtAbout');
         $mail = $this->input->post('txtMail');
         $pass = $this->input->post('txtPass');
+
         $data = array(
             'name_website'=>$name_website,
             'logo'=>$logo,
