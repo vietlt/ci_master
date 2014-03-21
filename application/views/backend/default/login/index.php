@@ -137,7 +137,7 @@
         else
         {
             $.ajax({
-                url: 'login/check_login',
+                url: '<?=base_url()?>backend/login/check_login',
                 type: 'post',
                 data: {
                     username : username,
@@ -147,7 +147,7 @@
                 success: function (data) {
                     if(data.status)
                     {
-                        window.location.href = 'home/index';
+                        window.location.href = '<?=base_url()?>backend/home/index';
                     }
                     else
                     {
@@ -176,34 +176,6 @@
         $('.block-content').addClass('margin','0');
         recoverform.fadeOut();
     }
-	// $().ready(function() {
-		
-	// 	/*
-	// 	 * Validate the form when it is submitted
-	// 	 */
-	// 	var validatelogin = $("#login-form").validate({
-	// 		invalidHandler: function(form, validator) {
- //      			var errors = validator.numberOfInvalids();
- //      			if (errors) {
- //        			var message = errors == 1
-	// 		          ? 'You missed 1 field. It has been highlighted.'
-	// 		          : 'You missed ' + errors + ' fields. They have been highlighted.';
- //        			$('#login-form').removeAlertBoxes();
- //        			$('#login-form').alertBox(message, {type: 'error'});
-        			
- //      			} else {
- //              alert(123);
- //       			 	$('#login-form').removeAlertBoxes();
-
- //      			}
- //    		}
-	// 	});
-		
-	// 	jQuery("#reset-login").click(function() {
-	// 		validatelogin.resetForm();
-	// 	});
-				
-	// });
   </script>
   <!-- end scripts-->
   

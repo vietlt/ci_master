@@ -14,3 +14,4 @@
 <script defer src="<?=backend_js_url()?>/mylibs/jquery.slidernav.min.js"></script> <!-- Contact List -->
 <script defer src="<?=backend_js_url()?>/common.js"></script> <!-- Generic functions -->
 <script defer src="<?=backend_js_url()?>/script.js"></script> <!-- Generic scripts -->
+<script defer src="<?=backend_js_url()?>/my_script.js"></script> <!-- Generic scripts -->
