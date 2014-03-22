@@ -5,7 +5,7 @@
     <p>Roles admin control panel !</p>
 </div>
 <div class="grid_12" id="show-message">
-    <div class="alert warning no-margin"><span id="test" class="hide">x</span><strong>Warning</strong> Lorem ipsum dolor sit amet.</div>
+    <div class="alert warning no-margin"><span class="hide">x</span><strong>Warning</strong> Lorem ipsum dolor sit amet.</div>
 </div>
 
 <div class="grid_6">
@@ -47,7 +47,6 @@
                                         if(data.status)
                                         {
                                             new ShowMessage().alertSuccess('123');
-
                                             $('#list-roles').append('<li class="i-16-user-red"><a href="javascript:void(0);" rel="tooltip-top" original-title="'+$('#roledesc').val()+'">'+$('#rolename').val()+'</a></li>');
                                         }
                                         else
@@ -59,9 +58,11 @@
                             }
                         }
 
-                        $( document ).ajaxComplete(function() {
-
-                        });
+                        // jQuery(document).ready(function($){
+                        //     $(document).on('click','span.hide',function(){
+                        //         $(this).parent().slideUp();                    
+                        //     });
+                        // });
                     </script>
                 </ul>
             </div> <!--! end of #block-actions -->

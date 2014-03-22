@@ -26,11 +26,15 @@ function ShowMessage()
 
 function LoadAlertBox(msg,type)
 {
+
     if(type.length != 0 && type == 'success') var mType = type;
     if(type.length != 0 && type == 'error') var mType = type;
     if(type.length != 0 && type == 'info') var mType = type;
     if(type.length != 0 && type == 'warning') var mType = type;
-    $('#show-message:first').append('<div class="alert '+mType+'"><span class="hide" id="test">x</span><strong>Success ,</strong>'+msg+'</div>');
+    $('#show-message:first').append('<div class="alert '+mType+'"><span class="hide">x</span><strong>Success ,</strong>'+msg+'</div>');
+        $('span.hide').click(function() {
+        $(this).parent().slideUp();                    
+    }); 
 }
 
 var showAlert = new ShowMessage();

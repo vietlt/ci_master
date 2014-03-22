@@ -137,11 +137,7 @@
         else
         {
             $.ajax({
-<<<<<<< HEAD
-                url: 'backend/login/check_login',
-=======
                 url: '<?=base_url()?>backend/login/check_login',
->>>>>>> 0f7f6ee538f80114f835547f4120dc3d60d9db06
                 type: 'post',
                 data: {
                     username : username,

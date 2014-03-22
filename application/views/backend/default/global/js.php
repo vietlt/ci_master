@@ -1,6 +1,6 @@
 <script src="<?=backend_js_url()?>/libs/modernizr-2.0.6.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="<?=backend_js_url()?>/libs/jquery-1.6.2.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="<?=backend_js_url()?>/libs/jquery-1.9.1.min.js"><\/script>')</script>
 <!-- scripts concatenated and minified via ant build script-->
 <script defer src="<?=backend_js_url()?>/plugins.js"></script> <!-- lightweight wrapper for consolelog, optional -->
 <script defer src="<?=backend_js_url()?>/mylibs/jquery-ui-1.8.15.custom.min.js"></script> <!-- jQuery UI -->

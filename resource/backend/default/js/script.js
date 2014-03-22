@@ -49,8 +49,7 @@ $(document).ready(function() {
 	$('span.hide').click(function() {
 		$(this).parent().slideUp();					   
 	});	
-	
-	
+
 	
 	/*
 	 * Toolbox
@@ -65,9 +64,6 @@ $(document).ready(function() {
 	$('.close-toolbox').click(function() {
 		$(this).parents('.toolbox-content').fadeOut();
 	});
-	
-	
-	
 	/*
 	 * Dropdown-menu for left sidebar
 	 */
